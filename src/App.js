@@ -17,18 +17,16 @@ function App() {
 
 
   return <section >
-    <div style={{"margin":"2vw","margin-left":"5vw","gap":"1rem"}} >
+  <div>
       {ParentLogoAdress.map((key)=>(
-        <img style={{"border":"solid 0.2px grey","borderRadius":"70px","height":"15vh"}} src={key} name={key} alt=""  onClick={handleClick}  />
-      ))}
-    </div>
-    <div  style={{"backgroundColor":" rgb(212, 235, 255)","width":"100vw"}}>
-        <div style={{"margin-left":"20vw"}}>
-      {ChilddAdress.map((key)=>(
-        <img style={{"border":"solid 0.2px grey","borderRadius":"70px","height":"15vh"}} src={key} alt=""  />
+        <img   src={key} name={key} alt=""  onClick={handleClick}  />
       ))}
       </div>
-    </div>
+    <div  style={{"backgroundColor":" rgb(212, 235, 255)","width":"100vw"}}>
+      {ChilddAdress.map((key)=>(
+        <img src={key} alt=""  />
+      ))}
+      </div>
   </section>
 }
 
