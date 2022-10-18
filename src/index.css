@@ -13,11 +13,19 @@ code {
 
   color: rgb(212, 235, 255);
 }
-div {
+section{
+  position: absolute;
+  top: 5px;
+}
+div{
   display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  gap:7vw;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  align-items: center;
+  justify-content: center;
+  height: 10vw;
+  gap:2%;
+}
+img{
+  border-radius: 70px;
+  height: 70%;
+  box-shadow: 1px 5px #dbdbdb;
 }
