@@ -13,19 +13,26 @@ code {
 
   color: rgb(212, 235, 255);
 }
-section{
-  position: absolute;
-  top: 5px;
+
+.carousel-indicators{
+   color: transparent;
 }
 div{
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 10vw;
   gap:2%;
+  z-index: 5;
 }
 img{
   border-radius: 70px;
   height: 70%;
   box-shadow: 1px 5px #dbdbdb;
 }
+ 
+
+  
+
+ 
