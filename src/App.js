@@ -1,9 +1,11 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
+import ChildAdress from './child.json';
+import  'bootstrap/dist/css/bootstrap.min.css';
+import Carousel from 'react-bootstrap/Carousel';
+ 
 
-import ChildAdress from './child.json'
 function App() {
   const ParentLogoAdress=[]
-  
   for(const key in  ChildAdress){
      ParentLogoAdress.push(key)
   }
@@ -12,22 +14,53 @@ function App() {
   const handleClick=(event)=>{
     const name=event.target.name
     setChildAdress(ChildAdress[name])
-    // setChildAdress(ChildAdress[name])
   }
+  const handlefocus=()=>{
+    console.log("hello");
+  }
+  useEffect(() => {
+    var i=1;
+  setTimeout(() => {
+    const interval = setInterval(() => {
+      if(i>ParentLogoAdress.length-1){
+        i=0;
+      }
+      setChildAdress(ChildAdress[ParentLogoAdress[i]])
 
+      i++
+      }, 1500);
+    
+      return () => clearInterval(interval);
+  }, 100);
+  
+  }, []);
+ 
+  return (<section>
+    <Carousel style={{"position":"absolute","top":"-60px","left":"0px","height":"300px","width":"100vw"}}>
+    {ParentLogoAdress.map((key)=>{
+      return <Carousel.Item 
+      interval={900}
+      onFocus={handlefocus}>
+      
+      <img   
+      name={key}   
+      onClick={handleClick}
+        className="d-block w-500"
+        alt="First slide"
+        src={key} 
+        style={{"width":"7%"}}
+        />
+      </Carousel.Item>}
+      )}
+    </Carousel>
 
-  return <section >
-  <div>
-      {ParentLogoAdress.map((key)=>(
-        <img   src={key} name={key} alt=""  onClick={handleClick}  />
-      ))}
-      </div>
-    <div  style={{"backgroundColor":" rgb(212, 235, 255)","width":"100vw"}}>
+    <div   className='child'  style={{"width":"100vw","height":"100px","margin-top":"100px","backgroundColor":" rgb(212, 235, 255)"}}>
       {ChilddAdress.map((key)=>(
-        <img src={key} alt=""  />
+      <img  src={key}    alt=""  /> 
       ))}
-      </div>
-  </section>
+    </div>
+    </section>
+  );
 }
 
-export default App; 
+export default App;
